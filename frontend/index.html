@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Cup Coffee - Order Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app" id="app">
+        <div class="loading-screen" id="loadingScreen">
+            <div class="loading-spinner"></div>
+            <p>Loading First Cup Coffee...</p>
+        </div>
+
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-image"><div class="placeholder-logo">☕</div></div>
+                    <h1 class="logo-text">First Cup Coffee</h1>
+                </div>
+                <div class="cart-icon">
+                    <span class="cart-symbol">🛒</span>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page" id="homePage">
+                <div class="hero">
+                    <h1 class="hero-title">Welcome to First Cup Coffee</h1>
+                    <p class="hero-subtitle">Crafted with passion, served with love</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <div class="category-card" data-category="coffee">
+                        <div class="category-icon">☕</div>
+                        <h3>Coffee & Espresso</h3>
+                        <p>Premium coffee and espresso drinks</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="cold">
+                        <div class="category-icon">🧊</div>
+                        <h3>Cold Beverages</h3>
+                        <p>Refreshing iced coffee and cold drinks</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="tea">
+                        <div class="category-icon">🍵</div>
+                        <h3>Tea & Other Drinks</h3>
+                        <p>Traditional teas and specialty beverages</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="pastries">
+                        <div class="category-icon">🥐</div>
+                        <h3>Pastries & Baked Goods</h3>
+                        <p>Fresh baked pastries and sweet treats</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="breakfast">
+                        <div class="category-icon">🥞</div>
+                        <h3>Breakfast & Light Meals</h3>
+                        <p>Hearty breakfast and light meal options</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page hidden" id="categoryPage">
+                <div class="page-header">
+                    <button class="back-btn" id="backToHomeBtn">← Back to Menu</button>
+                    <h2 class="page-title" id="categoryTitle"></h2>
+                </div>
+                <div class="items-grid" id="itemsGrid"></div>
+            </div>
+
+            <div class="page hidden" id="cartPage">
+                <div class="page-header">
+                     <button class="back-btn" id="backToHomeFromCartBtn">← Back to Menu</button>
+                    <h2 class="page-title">Your Cart</h2>
+                </div>
+                <div class="cart-content">
+                    <div class="cart-items" id="cartItems"></div>
+                    <div class="cart-empty hidden" id="cartEmpty">
+                        <p>Your cart is empty</p>
+                        <button class="btn btn--primary" id="browseMenuBtn">Browse Menu</button>
+                    </div>
+                    <div class="cart-summary" id="cartSummary">
+                        <div class="total">
+                            <strong>Total: ₹<span id="cartTotal">0</span></strong>
+                        </div>
+                        <button class="btn btn--primary btn--full-width" id="placeOrderBtn">Place Order</button>
+                        <button class="btn btn--secondary btn--full-width mt-8" id="clearCartBtn">Clear Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page hidden" id="orderPage">
+                <div class="table-number-section">
+                     <h2>Confirm Your Order</h2>
+                     <div id="orderSummary"></div>
+                     <div class="order-total">
+                         <strong>Total: ₹<span id="orderTotal">0</span></strong>
+                     </div>
+                     <label for="tableNumber" class="form-label">Table Number</label>
+                     <input type="number" id="tableNumber" class="form-control" placeholder="Enter table number (1-50)" min="1" max="50">
+                     <button class="btn btn--primary btn--full-width mt-8" id="confirmOrderBtn">Confirm Order</button>
+                </div>
+
+                <div class="order-confirmed hidden" id="orderConfirmed">
+                    <div class="success-icon">✅</div>
+                    <h2>Order Placed Successfully!</h2>
+                    <p>Your order ID is <strong>#<span id="orderId"></span></strong>. It will be ready in approximately <strong id="estimatedTime">10</strong> minutes.</p>
+                    <button class="btn btn--primary btn--full-width mt-16" id="newOrderBtn">Place New Order</button>
+                </div>
+            </div>
+        </main>
+
+        <div class="toast hidden" id="toast">
+            <span id="toastMessage"></span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
